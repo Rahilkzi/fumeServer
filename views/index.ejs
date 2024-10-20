@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Folders</h2>
+    <ul>
+        <% folders.forEach(function(folder) { %>
+        <li>
+            <a href="/folder/<%= folder %>"><%= folder %></a>
+        </li>
+        <% }); %>
+    </ul>
+
+</body>
+</html>

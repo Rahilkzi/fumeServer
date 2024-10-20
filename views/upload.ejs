@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>File Upload</h1>
+
+    <h2>Upload File</h2>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="text" name="folder" placeholder="Folder Name (optional)" />
+        <input type="file" name="files" multiple required />
+        <button type="submit" >Upload</button>
+    </form>
+
+
+    <h2>Folders</h2>
+<ul>
+    <% folders.forEach(function(folder) { %>
+        <li>
+            <a href="/folder/<%= folder %>"><%= folder %></a>
+            <form action="/delete-folder/<%= folder %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this folder?');" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    <% }); %>
+</ul>
+
+    <h2>Manage Uploads</h2>
+<form action="/empty-uploads" method="POST" onsubmit="return confirm('Are you sure you want to empty all uploads?');">
+    <button type="submit">Empty All Uploads</button>
+</form>
+
+</body>
+</html>
