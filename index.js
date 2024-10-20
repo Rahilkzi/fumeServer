@@ -194,7 +194,7 @@ const searchFiles = async (dir, searchString) => {
                 // Construct the URL for the found file
                 const relativePath = path.relative(uploadDir, filePath).replace(/\\/g, '/');
                 const fullUrl = `https://fumer.vercel.app/uploads/${relativePath}`;
-                results.push(fullUrl); // Add the URL to results
+                results.push('curl -O '+fullUrl); // Add the URL to results
             }
         }
     }
