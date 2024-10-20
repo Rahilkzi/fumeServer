@@ -175,10 +175,11 @@ app.get('/search=:searchString', async (req, res) => {
     }
 });
 
-// Function to search for the string in files
+// Function to search for the string in files (case-insensitive)
 const searchFiles = async (dir, searchString) => {
     const results = [];
     const files = await promisify(fs.readdir)(dir);
+    const lowerSearchString = searchString.toLowerCase(); // Convert search string to lowercase
 
     for (const file of files) {
         const filePath = path.join(dir, file);
@@ -189,17 +190,18 @@ const searchFiles = async (dir, searchString) => {
             results.push(...subDirResults);
         } else {
             const content = await promisify(fs.readFile)(filePath, 'utf8');
-            if (content.includes(searchString)) {
+            if (content.toLowerCase().includes(lowerSearchString)) { // Convert content to lowercase and search
                 // Construct the URL for the found file
                 const relativePath = path.relative(uploadDir, filePath).replace(/\\/g, '/');
                 const fullUrl = `https://fumer.vercel.app/uploads/${relativePath}`;
-                results.push('curl -O '+fullUrl);
+                results.push(fullUrl); // Add the URL to results
             }
         }
     }
 
     return results;
 };
+
 
 // Start the server
 app.listen(PORT, () => {
