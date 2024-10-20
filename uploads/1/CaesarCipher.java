@@ -1,3 +1,4 @@
+Implementation Substitution and Transposition Cipher Text. Design and implement algorithm to encrypt and decrypt message using classical substitution and transposition techniques
 import java.util.Scanner;
 public class CaesarCipher {
  public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
