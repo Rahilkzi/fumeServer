@@ -1,0 +1,39 @@
+{
+"employees":[
+ {
+ "id":1,
+ "name":"Ganesh Agare",
+ "position":"Software Engineer",
+ "salary":75000,
+ "departments":["Engineering","Technology"]
+ },
+ {
+ "id":2,
+ "name":"Rehan nevrekar",
+ "position":"Data Scientist",
+ "salary":80000,
+ "departments":["Data Science","Research"]
+ },
+ {
+ "id":3,
+ "name":"Huzaif Khan",
+ "position":"Market Specialist",
+ "salary":65000,
+ "departments":["Marketing"]
+ },
+ {
+ "id":4,
+ "name":"Rahil kazi",
+ "position":"Financial Analyst",
+ "salary":75000,
+ "departments":["Finance"]
+ },
+ {
+ "id":5,
+ "name":"Atharva Kamble",
+ "position":"HR Manager",
+ "salary":60000,
+ "departments":["Human Resource"]
+ }
+ ]
+}
