@@ -183,6 +183,7 @@ const searchFiles = async (dir, searchString) => {
 
     for (const file of files) {
         const filePath = path.join(dir, file);
+        console.log(filePath)
         const stat = await promisify(fs.stat)(filePath);
 
         if (stat.isDirectory()) {
